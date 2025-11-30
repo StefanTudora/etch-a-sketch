@@ -1,0 +1,46 @@
+
+header {
+    background-color: #5b5a89;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    font-size: 36px;
+    color: white;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #89d6e8;
+    padding: 40px;
+    gap: 100px
+}
+
+.button-input {
+    background-color: #487476;
+    color: white;
+    font-size: 24px;
+    height: 50px;
+    width: 200px;
+    border-radius: 16px;
+    box-shadow: 14px 14px 20px 0px rgb(100, 100, 100);
+}
+
+.button-input:active {
+    scale: 90%;
+    box-shadow: 20px 20px 20px 0px rgb(100, 100, 100);
+}
+
+footer {
+    background-color: #295273;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: white;
+    font-size: 20px;
+}
