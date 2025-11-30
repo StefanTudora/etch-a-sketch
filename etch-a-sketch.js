@@ -77,4 +77,4 @@ function attachListener() {
 }
 
 attachListener();
-drawGrid(2);
+drawGrid(64);
