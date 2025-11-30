@@ -41,7 +41,7 @@ button:active {
 .drawing {
     height: 670px;
     width: 670px;
-    border-width: 5px;
+    border-width: 1px;
     border-style: solid;
     display: flex;
     flex-direction: column;

@@ -1,7 +1,6 @@
 
 
 function drawGrid(size) {
-    // Get the contents of a cell div
     const drawingNode = document.querySelector('.drawing');
     // Remove children if present
     while (drawingNode.firstChild) {
@@ -19,6 +18,14 @@ function drawGrid(size) {
     }
 }
 
+function resetGrid() {
+    const drawingNode = document.querySelector('.drawing');
+    const cellList = drawingNode.querySelectorAll('.cell');
+    cellList.forEach(cell => {
+        cell.style.opacity = '0';
+    });
+}
+
 function getDivRow() {
     const row = document.createElement("div");
     row.style.setProperty('display', 'flex');
@@ -32,14 +39,19 @@ function getDivRow() {
 function getCellDiv() {
     const cell = document.createElement("div");
     // Set cell style
+    cell.classList.add("cell");
     cell.style.setProperty('background-color', getRandomColor());
     cell.style.setProperty('border-style', 'solid');
+    cell.style.setProperty('border-width', '1px')
     cell.style.setProperty('display', 'flex');
     cell.style.setProperty('flex', 'auto');
     cell.style.setProperty('height', '100%');
-    // cell.style.setProperty('height', '0%');
-    cell.addEventListener("hover", () => {
-        let opacity = cell.getAttribute("opacity");
+    cell.style.setProperty('opacity', '0.0');
+    cell.addEventListener("mouseover", () => {
+        if (cell.style.opacity == "1") return;
+        else {
+            cell.style.opacity = `${Number(cell.style.opacity) + 0.1}`;
+        }
     });
     return cell;
 }
@@ -60,11 +72,9 @@ function attachListener() {
         drawGrid(cellsNumber);
     });
     buttonNode.nextElementSibling.addEventListener("click", () => {
-        // Cannot use the same method, I am not saving the cellsNumber outside the first listener scope
-        // Find a way to find the exact number of children in the drawing
-        // drawGrid(cellsNumber);
+        resetGrid();
     });
 }
 
 attachListener();
-drawGrid(64);
+drawGrid(2);
